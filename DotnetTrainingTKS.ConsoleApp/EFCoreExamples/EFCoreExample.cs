@@ -41,6 +41,7 @@ namespace DotnetTrainingTKS.ConsoleApp.EFCoreExamples
         }
         public void Create(string title, string author, string content)
         {
+
             BlogModel blog = new BlogModel()
             {
                 BlogTitle = title,
@@ -51,6 +52,7 @@ namespace DotnetTrainingTKS.ConsoleApp.EFCoreExamples
             int result = _db.SaveChanges();
             string message = result > 0 ? "Added Successfully" : "Failed Systematially and Successfully";
             Console.WriteLine(message);
+            Read();
         }
 
         public void Update(int id,string title, string author, string content)
@@ -77,6 +79,7 @@ namespace DotnetTrainingTKS.ConsoleApp.EFCoreExamples
             int result = _db.SaveChanges();
             var message = result > 0 ? "Deleted Successfully" : "Failed Systematically and Successfully";
             Console.WriteLine(message);
+            Read();
         }
     }
 }

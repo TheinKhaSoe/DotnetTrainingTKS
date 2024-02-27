@@ -50,5 +50,6 @@ EFCoreExample eFCoreExample = new EFCoreExample();
 //eFCoreExample.Edit(10);
 //eFCoreExample.Create("The Batman","BillFinger", "A Rainy Day");
 //eFCoreExample.Update(13, "The Batman", "Bill Finger", "The Beginning");
-eFCoreExample.Delete(13);
+//eFCoreExample.Create("The Batman", "BillFinger", "A Rainy Day");
+eFCoreExample.Delete(14);
 Console.ReadKey();
