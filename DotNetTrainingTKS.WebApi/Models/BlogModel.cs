@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DotnetTrainingTKS.ConsoleApp.Models
+namespace DotNetTrainingTKS.WebApi.Models
 {
     [Table("tbl_Blog")]
     public class BlogModel

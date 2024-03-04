@@ -1,4 +1,5 @@
-﻿using DotnetTrainingTKS.ConsoleApp.EFCoreExamples;
+﻿using DotNetTrainingTKS.WebApi;
+using DotNetTrainingTKS.WebApi.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,25 +11,40 @@ namespace DotNetTrainingTKS.WebApi.Controllers
     {
         private readonly AppDbContext _db;
 
+        public BlogController()
+        {
+            _db = new AppDbContext();
+        }
         [HttpGet]
         public IActionResult GetBlogs()
         {
-            return Ok("GetBlogs");
+            List<BlogModel> blogs = _db.Blogs.ToList();
+            return Ok(blogs);
         }
-        [HttpGet]
-        public IActionResult CrateBlog()
+        [HttpPost]
+        public IActionResult CrateBlog([FromBody]BlogModel blog)
         {
-            return Ok("Create BLog");
+            var obj = _db.Blogs.Add(blog);
+            _db.SaveChanges();
+            return Ok("Added Successfully");
         }
-        [HttpGet]
-        public IActionResult UpdateBlog()
+        [HttpPut]
+        public IActionResult UpdateBlog(int id, [FromBody]BlogModel blog)
         {
-            return Ok("Update Blog");
+            var obj = _db.Blogs.Where(x => x.BlogId == id).FirstOrDefault();
+            obj.BlogTitle = blog.BlogTitle;
+            obj.BlogAuthor = blog.BlogAuthor;
+            obj.BlogContent = blog.BlogContent;
+            _db.SaveChanges();
+            return Ok("Updated Successfully");
         }
-        [HttpGet]
-        public IActionResult DeleteBlog()
+        [HttpDelete]
+        public IActionResult DeleteBlog(int id)
         {
-            return Ok("Delete Blog");
+            var obj = _db.Blogs.FirstOrDefault(x=>x.BlogId==id);
+            _db.Blogs.Remove(obj);
+            _db.SaveChanges();
+            return Ok("Deleted Successfully");
         }
     }
 }

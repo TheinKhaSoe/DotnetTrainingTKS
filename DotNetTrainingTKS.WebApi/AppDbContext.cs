@@ -1,13 +1,9 @@
-﻿using DotnetTrainingTKS.ConsoleApp.Models;
+﻿using DotNetTrainingTKS.WebApi.Models;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DotnetTrainingTKS.ConsoleApp.EFCoreExamples
+
+namespace DotNetTrainingTKS.WebApi
 {
     public class AppDbContext:DbContext
     {
