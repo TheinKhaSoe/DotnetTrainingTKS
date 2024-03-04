@@ -156,9 +156,9 @@ function deleteBlog(id) {
       setLocalStorage(lstblogs);
       readBlog();
     },
-    function cancelCb() {
-        readBlog();
-    }
+    // function cancelCb() {
+    //     readBlog();
+    // }
   );
 
   //readBlog();

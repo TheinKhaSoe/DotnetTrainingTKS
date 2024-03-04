@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetTrainingTKS.ConsoleApp", "DotnetTrainingTKS.ConsoleApp\DotnetTrainingTKS.ConsoleApp.csproj", "{63434DCF-5317-46E0-9A98-143879B7380B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetTrainingTKS.ConsoleApp", "DotnetTrainingTKS.ConsoleApp\DotnetTrainingTKS.ConsoleApp.csproj", "{63434DCF-5317-46E0-9A98-143879B7380B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetTrainingTKS.WebApi", "DotNetTrainingTKS.WebApi\DotNetTrainingTKS.WebApi.csproj", "{549093A3-07FF-4537-BAC3-CD153FDE1827}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{63434DCF-5317-46E0-9A98-143879B7380B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63434DCF-5317-46E0-9A98-143879B7380B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63434DCF-5317-46E0-9A98-143879B7380B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{549093A3-07FF-4537-BAC3-CD153FDE1827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{549093A3-07FF-4537-BAC3-CD153FDE1827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{549093A3-07FF-4537-BAC3-CD153FDE1827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{549093A3-07FF-4537-BAC3-CD153FDE1827}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
