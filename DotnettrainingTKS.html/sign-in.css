@@ -9,10 +9,14 @@ body {
 .table{
     max-width:600px;
     padding:1rem;
+    border-radius:20px;
+    border:2px solid green;
 }
 .form-signin {
   max-width: 600px;
   padding: 1rem;
+  border-radius:20px;
+  border:2px solid green;
 }
 
 .form-signin .form-floating:focus-within {

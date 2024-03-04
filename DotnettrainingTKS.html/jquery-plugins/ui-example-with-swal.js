@@ -23,7 +23,7 @@ function readBlog(){
                         <td>${item.Title}</td>
                         <td>${item.Author}</td>
                         <td>${item.Content}</td>
-                        <td>
+                        <td style="text-align:center;">
                             <button class="btn btn-secondary" type="submit" onclick="editBlog('${item.Id}')"><i class="fa fa-pencil"></i> Edit</button>
                             <button class="btn btn-danger px-2" type="submit" onclick="deleteBlog('${item.Id}')"><i class="fa fa-trash"></i> Delete</button>
                         </td>
@@ -41,9 +41,11 @@ function createBlog(title, author, content){
         Content:content
     };
     lstblogs.push(blog);
+    //alert("Successfully Updated");
+    sweetAddorUpdate("A new blog is successfully added!");
     //lstblogs.push(blog);
     setLocalStorage(lstblogs);
-    //readBlog();
+    readBlog();
 }
 function editBlog(id){
     let lstblogs = getBlog();
@@ -67,6 +69,7 @@ function updateBlog(id,title,author,content){
     console.log("No Data Found");
     return;
    }
+   
    let index=lstblogs.findIndex(x=>x.Id === id);
    lstblogs[index] = {
     Id : id,
@@ -75,20 +78,40 @@ function updateBlog(id,title,author,content){
     Content : content
    };
    setLocalStorage(lstblogs);
-   //readBlog();
+   sweetAddorUpdate("The blog is successfully updated!")
+   readBlog();
 }
 function deleteBlog(id){
     let lstblogs = getBlog();
-    let lst=lstblogs.filter(x=>x.Id === id);
-    if(lst.length==0)
-    {
-        console.log("No Data Found");
-        return;
-    }
-    lstblogs = lstblogs.filter(x=>x.Id !== id);
-    alert("Blog is deleted successfully");
-    setLocalStorage(lstblogs);
-    readBlog();
+    //let lst=lstblogs.filter(x=>x.Id === id);
+    // if(lst.length==0)
+    // {
+    //     console.log("No Data Found");
+    //     return;
+    // }
+   
+    Swal.fire({
+        title: "Are you sure to delete this item?",
+        //text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Deleted!",
+            text: "This item has been deleted.",
+            icon: "success"
+          });
+          lstblogs = lstblogs.filter(x=>x.Id !== id);
+          setLocalStorage(lstblogs);
+          readBlog();
+        }
+      });
+   
+   
 }
 function uuidv4() {
     return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
@@ -112,10 +135,12 @@ function setLocalStorage(blog){
         
        if(_tblID == '') {
            createBlog(title, author, content);
-           alert("New Blog is added successfully");
+           //alert("New Blog is added successfully");
+           //sweetAddorUpdate("New Blog is added successfully");
        } else {
             updateBlog(_tblID, title, author, content);
-            alert("Blog is Updated Successfully");
+            // alert("Blog is Updated Successfully");
+            //sweetAddorUpdate("The Blog is updated successfully");
             _tblID = '';
         }
         $('#title').val('')
@@ -124,4 +149,15 @@ function setLocalStorage(blog){
         //$('#title').focus();
         readBlog();
     });
-
+    function sweetAddorUpdate(message)
+    {
+        //event.preventDefault();
+        Swal.fire({
+            position: "middle",
+            icon: "success",
+            title: message,
+            showConfirmButton: false,
+            timer: 5000
+          });
+    }
+    
