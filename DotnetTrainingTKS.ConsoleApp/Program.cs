@@ -44,12 +44,17 @@ DapperExample dapperExample=new DapperExample();
 //dapperExample.Update(12, "Indiana Jonse", "George Lucas", "The Lost Island");
 dapperExample.Delete(12);*/
 
-using DotnetTrainingTKS.ConsoleApp.EFCoreExamples;
-EFCoreExample eFCoreExample = new EFCoreExample();
+//using DotnetTrainingTKS.ConsoleApp.EFCoreExamples;
+//EFCoreExample eFCoreExample = new EFCoreExample();
 //eFCoreExample.Read();
 //eFCoreExample.Edit(10);
 //eFCoreExample.Create("The Batman","BillFinger", "A Rainy Day");
 //eFCoreExample.Update(13, "The Batman", "Bill Finger", "The Beginning");
 //eFCoreExample.Create("The Batman", "BillFinger", "A Rainy Day");
-eFCoreExample.Delete(14);
+//eFCoreExample.Delete(14);
+using DotnetTrainingTKS.ConsoleApp.HttpClientExamples;
+Console.WriteLine("Waiting For Api");
+Console.ReadKey();
+HttpClientExaple httpclient = new HttpClientExaple();
+await httpclient.Run();
 Console.ReadKey();
